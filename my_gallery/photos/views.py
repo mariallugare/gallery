@@ -6,7 +6,9 @@ from django.shortcuts import render
 def gallery(request):
     return render(request,'gallery.html')
 
-def viewPhoto(request,pk):
+def viewPhoto(request,*args, **kargs):
+    id=kargs.get('id')
+    print(id)
     return render(request,'photo.html')
 
 
