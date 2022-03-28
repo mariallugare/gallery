@@ -6,7 +6,7 @@ By: Marial Lugare
 The application displays several images of different categories and taken in different places thus giving a user a wide variety of pictures to be impressed with.
 A user can filter images and view them in terms of categories and locations taken.
 A user can also get a link to an image and view it whole from a web browser.
-Installation Requirements
+# Installation Requirements
 Clone this repository using the link from the clone button
 Open the downloaded folder in a text editor of your preference
 To install virtual environment:
