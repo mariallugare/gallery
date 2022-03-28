@@ -32,7 +32,7 @@ Starting up the application
 $ python3.8 manage.py runserver
 
 Open port *http://127.0.0.1:8000/ * to interact with the application
-Known Bugs
+# Known Bugs
 There are known bugs.
 
 # Technologies Used
