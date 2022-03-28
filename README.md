@@ -8,7 +8,9 @@ A user can filter images and view them in terms of categories and locations take
 A user can also get a link to an image and view it whole from a web browser.
 # Installation Requirements
 Clone this repository using the link from the clone button
+
 Open the downloaded folder in a text editor of your preference
+
 To install virtual environment:
 $ python3.8 -m venv --without-pip virtual
 Activate virtual environment
