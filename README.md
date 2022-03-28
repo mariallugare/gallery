@@ -11,7 +11,8 @@ Clone this repository using the link from the clone button
 
 Open the downloaded folder in a text editor of your preference
 
-To install virtual environment:
+# To install virtual environment:
+
 $ python3.8 -m venv --without-pip virtual
 Activate virtual environment
 $ source virtual/bin/activate
