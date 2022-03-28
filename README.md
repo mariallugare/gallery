@@ -1,8 +1,8 @@
 # gallery
 This is a web based application where a user adds personal photos from where he or she visited.The user is able to filter images based on location and categories and can also view a larger size of the image.
-ALDIS GALLERY
+My GALLERY
 By: Marial Lugare
-Description of the application
+# Description of the application
 The application displays several images of different categories and taken in different places thus giving a user a wide variety of pictures to be impressed with.
 A user can filter images and view them in terms of categories and locations taken.
 A user can also get a link to an image and view it whole from a web browser.
