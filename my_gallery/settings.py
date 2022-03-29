@@ -9,7 +9,9 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 from pathlib import Path
 import environ
 import os
@@ -128,7 +130,11 @@ STATICFILES_DIRS = [
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 STATIC_ROOT =  os.path.join(BASE_DIR, 'staticfiles')
 
-
+cloudinary.config( 
+  cloud_name = "dcbdhkqtz", 
+  api_key = "633252761776541", 
+  api_secret = "i_IDomwDN1phwVjFb3_zb9NqAHQ" 
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
