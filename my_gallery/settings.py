@@ -9,7 +9,9 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 from pathlib import Path
 import environ
 import os
@@ -24,12 +26,12 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5m$&z298whe5tg2@-7xeu+ay8ve%23l(ch9%gx5f!kb2_ytd0t'
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+# DEBUG = env.bool("DJANGO_DEBUG", False)
+DEBUG =True
+ALLOWED_HOSTS = [env('ALLOWED_HOSTS')]
 
 
 # Application definition
@@ -41,13 +43,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'cloudinary_storage',
+    'cloudinary',
     'photos.apps.PhotosConfig',
+    
 
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+  'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -116,17 +121,22 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = 'static/'
-MEDIA_URL = '/images/'
-
+MEDIA_URL = '/media/'  
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'static/images')
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 STATIC_ROOT =  os.path.join(BASE_DIR, 'staticfiles')
 
+cloudinary.config( 
+  cloud_name = "dcbdhkqtz", 
+  api_key = "633252761776541", 
+  api_secret = "i_IDomwDN1phwVjFb3_zb9NqAHQ" 
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
